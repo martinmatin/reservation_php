@@ -24,12 +24,12 @@
 
 
 
-          <form method="post" action="../global.php">
+          <form method="post" action="../controller/addResevationController.php">
             <input type="hidden" name="reservation"/>
             <input type="text" name="destination" placeholder="Destination" ><br>
             <input type="text" name="nombre_place" placeholder="Nombre de places">
             <div class="checkboxy">
-                <input name="check_assurance" id="checky" value="1" type="checkbox" /><label class="terms">Assurance annulation</label>
+                <input name="check_assurance" id="checky" value="yes" type="checkbox" /><label class="terms">Assurance annulation</label>
             </div>
             <a><input id="submit" type="submit" ><a/>
 

@@ -20,8 +20,7 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
 
             <h3>DETAILS DES RESERVATIONS</h3>
 
-            <p>Leoooooooooluros.<br></p>
-            <p>Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.</p>
+            <?php  print($localTicket->afficherCommande()); ?>
 
         </div>
 
@@ -35,15 +34,8 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
 
 
 
-          <form method="post" action="../controller/addDetailController.php">
-            <input type="hidden" name="reservation"/>
-            <input type="text" name="name" placeholder="Name"  value="<?php  print($localTicket->getName()); ?>" ><br>
-            <input type="text" name="age" placeholder="Age" value="<?php  print($localTicket->getAge()); ?>" >
-            <a><input id="submit" type="submit" class="button" value="Next" ><a/>
 
-          </form>
-
-                      <a href="form_reservation.php" class="button">Prev</a>
+                      <a href="form_detail.php" class="button">Prev</a>
 
 
 

@@ -1,4 +1,4 @@
-<?php  
-session_start();  
-header('Location: /view/form_reservation.php');    
+<?php
+session_start();
+header('Location: ../phpform/view/form_reservation.php');
 ?>

@@ -1,15 +1,16 @@
 
-<?php 
+<?php
 session_start();
-require  '../model/tickets.php'; 
+require  '../model/tickets.php';
 if(isset($_SESSION["reservationModel"])){ //$session could be replace by an access to an DB
-    $localTicket = unserialize($_SESSION["reservationModel"]);  
-    //the object is stored as a string in $SESSSION 
+    $localTicket = unserialize($_SESSION["reservationModel"]);
+    //the object is stored as a string in $SESSSION
     //so we need to transform it back as object
-} else {  
+} else {
     $localTicket = new Ticket(); //else empty input
 }  ?>
 <!DOCTYPE html>
+<meta charset="UTF-8"> 
 <link rel="stylesheet" type="text/css" href="../style/design.css">
 
 <div class="container">
@@ -30,9 +31,6 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
 
             <form method="post" action="verif.php">
                       </form>
-
-
-
 
 
                       <a href="form_detail.php" class="button">Prev</a>

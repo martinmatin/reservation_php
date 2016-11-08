@@ -17,14 +17,14 @@ if (isset($_POST['reservation'])) {
   if(is_numeric($nombre_place)){
     $localTicket->setNbPlace($nombre_place);
   }else{
-    $localTicket->addError("Number of place should be a number");
+    $localTicket->addError("Le nombre de place doit être un nombre");
   }
- 
- 
+
+
   if(isset($_POST['check_assurance'])){
     $check_assurance = $_POST['check_assurance'];
   }else{
-    $check_assurance = "no";
+    $check_assurance = "Non";
   }
 
 
@@ -33,12 +33,12 @@ if (isset($_POST['reservation'])) {
     $_SESSION["reservationModel"] = serialize($localTicket); //object to string
 
   if($localTicket->hasError()){
-    header('Location: ../view/form_reservation.php');  
+    header('Location: ../view/form_reservation.php');
   }else{
-     header('Location: ../view/form_detail.php');  
+     header('Location: ../view/form_detail.php');
   }
 
-   
+
 
 
  // print($localTicket->afficherCommande());

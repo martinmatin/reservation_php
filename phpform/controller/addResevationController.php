@@ -41,7 +41,7 @@ if (isset($_POST['reservation'])) {
 
 
 
- // print($localTicket->afficherCommande());
+ // print($localTicket->toString());
     // echo "<script>window.location = 'view/form_detail.php'</script>";
 }
 

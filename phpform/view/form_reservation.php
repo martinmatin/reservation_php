@@ -4,8 +4,7 @@ session_start(); //to enable/init the $session
 require  '../model/tickets.php';
 if(isset($_SESSION["reservationModel"])){ //$session could be replace by an access to an DB
     $localTicket = unserialize($_SESSION["reservationModel"]);
-    //the object is stored as a string in $SESSSION
-    //so we need to transform it back as object
+
 } else {
     $localTicket = new Ticket(); //else empty input
 }  ?>
@@ -25,6 +24,7 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
             <p>Le prix de la place des de 10 euros jusque 12 ans et ensuite de 15 euros.<br></p>
             <p>Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.</p>
 
+
             <p style="color:red;"><?php  print($localTicket->getError()); ?></p>
 
         </div>
@@ -40,15 +40,19 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
 
 
           <form method="post" action="../controller/addResevationController.php">
+
             <input type="hidden" name="reservation"/>
             <input type="text" name="destination" placeholder="Destination" value="<?php  print($localTicket->getDestination()); ?>" ><br>
             <input type="text" name="nombre_place" placeholder="Nombre de places" value="<?php print($localTicket->getNbPlace()); ?>" >
             <div class="checkboxy">
-                <input name="check_assurance" id="checky" value="Oui" type="checkbox" /><label class="terms">Assurance annulation (Grosse arnaque)</label>
+                <input name="check_assurance" id="checky" value="Oui" type="checkbox" /><label class="terms">Assurance annulation </label>
             </div>
             <a><input id="submit" class="button" type="submit" value="Next"><a/>
 
           </form>
+
+                                                      <a href="cancel_order.php" class="button">Cancel</a>
+
 
 
 

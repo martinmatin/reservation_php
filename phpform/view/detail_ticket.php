@@ -2,6 +2,7 @@
 <?php
 session_start();
 require  '../model/tickets.php';
+require  '../model/person.php';
 if(isset($_SESSION["reservationModel"])){ //$session could be replace by an access to an DB
     $localTicket = unserialize($_SESSION["reservationModel"]);
     //the object is stored as a string in $SESSSION
@@ -21,7 +22,7 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
 
             <h3>DETAILS DES RESERVATIONS</h3>
 
-            <?php  print($localTicket->afficherCommande()); ?>
+            <?php  print($localTicket->toString()); ?>
 
         </div>
 
@@ -34,6 +35,8 @@ if(isset($_SESSION["reservationModel"])){ //$session could be replace by an acce
 
 
                       <a href="form_detail.php" class="button">Prev</a>
+
+                      <a href="finish_order.php" class="button">Finish</a>
 
 
 

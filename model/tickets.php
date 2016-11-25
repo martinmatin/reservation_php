@@ -7,6 +7,12 @@ class Ticket
     private $nbPlace;
     private $cancelInssurance;
     private $people;
+<<<<<<< HEAD:model/tickets.php
+=======
+
+    // private $name;
+    // private $age;
+>>>>>>> 459a12486eb0503ce77b24537703e929adfd673f:phpform/model/tickets.php
     private $error;
     // private $name;
 
@@ -18,7 +24,25 @@ class Ticket
         $this->age = "";
         $this->error = "";
         $this->people = array();
+<<<<<<< HEAD:model/tickets.php
+=======
 
+    }
+>>>>>>> 459a12486eb0503ce77b24537703e929adfd673f:phpform/model/tickets.php
+
+    public function addPeople($person){
+        $this->people[] =  $person; //push to array
+    }
+
+    public function getPeople(){
+        return $this->people;
+    }
+
+    public function getPeopleIndex($index){
+        if(isset($this->people[$index])){
+            return $this->people[$index];
+        }
+        return null;
     }
 
     public function addPeople($person){
@@ -102,7 +126,14 @@ class Ticket
 
         $data .=  "<li>Assurance annulation : ".$this->cancelInssurance."</li>";
 
+<<<<<<< HEAD:model/tickets.php
         $price = 0;
+=======
+
+        foreach ($this->people as $person) {
+            $data .=  $person->toString();        
+        }
+>>>>>>> 459a12486eb0503ce77b24537703e929adfd673f:phpform/model/tickets.php
 
         foreach ($this->people as $person) {
             $data .=  $person->toString();

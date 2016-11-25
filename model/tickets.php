@@ -6,9 +6,9 @@ class Ticket
     private $destination;
     private $nbPlace;
     private $cancelInssurance;
-    private $name;
-    private $age;
+    private $people;
     private $error;
+    // private $name;
 
     public function __construct() {
         $this->destination = "";
@@ -17,7 +17,23 @@ class Ticket
         $this->name = "";
         $this->age = "";
         $this->error = "";
+        $this->people = array();
 
+    }
+
+    public function addPeople($person){
+        $this->people[] =  $person; //push to array
+    }
+
+    public function getPeople(){
+        return $this->people;
+    }
+
+    public function getPeopleIndex($index){
+        if(isset($this->people[$index])){
+            return $this->people[$index];
+        }
+        return null;
     }
 
     public function addError($error){
@@ -56,26 +72,26 @@ class Ticket
         return $this->cancelInssurance;
     }
 
-    public function setName($cancelInssurance){
-      // array_push($name,filter_var($cancelInssurance, FILTER_SANITIZE_STRING));
-        $this->name =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
-    }
+    // public function setName($cancelInssurance){
+    //   // array_push($name,filter_var($cancelInssurance, FILTER_SANITIZE_STRING));
+    //     $this->name =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
+    // }
 
-    public function getName(){
-        return $this->name;
-    }
+    // public function getName(){
+    //     return $this->name;
+    // }
 
-    public function setAge($cancelInssurance){
-        $this->age =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
-    }
+    // public function setAge($cancelInssurance){
+    //     $this->age =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
+    // }
 
-    public function getAge(){
-        return $this->age;
-    }
+    // public function getAge(){
+    //     return $this->age;
+    // }
 
 
 
-    public function afficherCommande() {
+    public function toString() {
 
 
         $data = "Résumé, commande du client : <ul>";
@@ -86,14 +102,26 @@ class Ticket
 
         $data .=  "<li>Assurance annulation : ".$this->cancelInssurance."</li>";
 
-        $data .=  "<li>Nom: ".$this->name."</li>";
+        $price = 0;
 
-        $data .=  "<li>Age: ".$this->age."</li>";
-
+        foreach ($this->people as $person) {
+            $data .=  $person->toString();
+            $price += $person->getPrice();
+        }
+        $data .= $price;
         $data .=  "</ul>";
 
         return $data;
 
+    }
+
+    public function totalPrice(){
+      $price = 0;
+
+      foreach ($this->people as $person) {
+          $price += $person->getPrice();
+      }
+      return $price;
     }
 
 

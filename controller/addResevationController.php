@@ -1,6 +1,8 @@
 <?php
 session_start();
 require  '../model/tickets.php';
+require  '../model/person.php';
+
 
 if(!isset($_SESSION["reservationModel"])){
 	$_SESSION["reservationModel"] = serialize(new Ticket());
@@ -33,15 +35,15 @@ if (isset($_POST['reservation'])) {
     $_SESSION["reservationModel"] = serialize($localTicket); //object to string
 
   if($localTicket->hasError()){
-    header('Location: ../view/form_reservation.php');
+    header('Location: loadBookingController.php');
   }else{
-     header('Location: ../view/form_detail.php');
+     header('Location: loadDetailController.php');
   }
 
 
 
 
- // print($localTicket->afficherCommande());
+ // print($localTicket->toString());
     // echo "<script>window.location = 'view/form_detail.php'</script>";
 }
 

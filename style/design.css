@@ -1,10 +1,102 @@
 body {
 
     font-family: "Helvetica Neue", Helvetica, Arial;
+    font-family: "Nunito", sans-serif; font-size: 24px;
 }
+  a    { text-decoration: none;
+}
+  a.buttono
+  {
+    /*position: fixed;
+    top:15%;
+    right:95%;*/
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #191970;
 
+    font-size: 15px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 30;
+
+    margin: 5em auto;
+
+    /*position: absolute;*/
+    /*top:0; right:0; bottom:0; left:0;*/
+
+  padding: 10px 10px;
+    width: 10px;
+    height:5px;
+
+    background: #4f4b77;
+    border: 1px solid #4f4b77;
+    color: #FFF;
+    overflow: hidden;
+
+    transition: all 0.5s;
+  }
+
+  .buttono:hover, .buttono:active
+  {
+    text-decoration: none;
+    color: #4f4b77;
+    border-color: #4f4b77;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .buttono span
+  {
+    display: inline-block;
+
+    padding-right: 0;
+
+    transition: padding-right 0.5s;
+  }
+
+  .buttono span:after
+  {
+    content: ' ';
+    position: absolute;
+    /*top: 0;
+    right: -18px;*/
+    opacity: 0;
+    width: 10px;
+    height: 10px;
+    margin-top: -10px;
+
+    background: rgba(0, 0, 0, 0);
+    border: 3px solid #FFF;
+    border-top: none;
+    border-right: none;
+
+    transition: opacity 0.5s, top 0.5s, right 0.5s;
+    transform: rotate(-45deg);
+  }
+
+  .buttono:hover span, .buttono:active span
+  {
+    /*padding-right: 30px;*/
+  }
+
+  .buttono:hover span:after, .buttono:active span:after
+  {
+    transition: opacity 0.5s, top 0.5s, right 0.5s;
+    opacity: 0;
+    border-color: #191970;
+    /*right: 0;
+    top: 50%;*/
+  }
+/*///////////////////////////*/
 html {
   /*padding-top: 20px;*/
+  body { font-family: "Nunito", sans-serif; font-size: 24px; }
+
+  p    { text-align: center; }
+  sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
+
+
+
+  /*   -------------------------*/
 
 margin-top: 8%;
   background: url(plane.jpg) no-repeat center fixed;
@@ -23,15 +115,16 @@ margin-top: 8%;
 
 }
 
+
 #signup {
     padding: 0px 25px 25px;
     background: #fff;
     box-shadow:
-        0px 0px 0px 5px rgba( 255,255,255,0.4 ),
+        0px 0px 0px 2px rgba( 255,255,255,0.4 ),
         0px 4px 20px rgba( 0,0,0,0.33 );
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
     display: table;
     position: static;
 }
@@ -84,9 +177,9 @@ input:-moz-placeholder {
 #signup .inputs input[type=email], input[type=password],input[type=text] {
     background: #f5f5f5;
     font-size: 0.8rem;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
     border: none;
     padding: 13px 10px;
     width: 96%;
@@ -97,7 +190,7 @@ input:-moz-placeholder {
 
 #signup .inputs input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     background: #fff;
-    box-shadow: 0px 0px 0px 3px #fff38e, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
+    box-shadow: 0px 0px 0px 3px #d3d3d3, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
     outline: none;
 }
 
@@ -135,15 +228,12 @@ input:-moz-placeholder {
         top,
         #b9c5dd 0%,
         #a4b0cb);
-    background: -webkit-gradient(
-        linear, left top, left bottom,
-        from(#b9c5dd),
-        to(#a4b0cb));
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #737b8d;
-    -moz-box-shadow:
+    background: #bababa;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    border: 0px solid #737b8d;
+    /*-moz-box-shadow:
         0px 5px 5px rgba(000,000,000,0.1),
         inset 0px 1px 0px rgba(255,255,255,0.5);
     -webkit-box-shadow:
@@ -154,7 +244,7 @@ input:-moz-placeholder {
         inset 0px 1px 0px rgba(255,255,255,0.5);
     text-shadow:
         0px 1px 3px rgba(000,000,000,0.3),
-        0px 0px 0px rgba(255,255,255,0);
+        0px 0px 0px rgba(255,255,255,0);*/
     display: table;
     position: static;
     clear: both;
@@ -165,8 +255,5 @@ input:-moz-placeholder {
         top,
         #a4b0cb 0%,
         #b9c5dd);
-    background: -webkit-gradient(
-        linear, left top, left bottom,
-        from(#a4b0cb),
-        to(#b9c5dd));
+    background: #a4b0cb;
 }

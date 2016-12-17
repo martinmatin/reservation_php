@@ -8,8 +8,8 @@ class Ticket
     private $cancelInssurance;
     private $people;
     private $error;
-    // private $name;
 
+    // private $name;
     public function __construct() {
         $this->destination = "";
         $this->nbPlace = "";

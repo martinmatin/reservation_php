@@ -1,0 +1,256 @@
+
+
+body {
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+html {
+  /*padding-top: 20px;*/
+
+  p    { text-align: center; }
+  sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
+
+
+
+  /*   -------------------------*/
+
+margin-top: 8%;
+  background: url(plane.jpg) no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+
+a    { text-decoration: none;
+}
+a.buttono
+{
+  /*position: fixed;
+  top:15%;
+  right:95%;*/
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #191970;
+
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 30;
+
+  margin: 5em auto;
+
+  /*position: absolute;*/
+  /*top:0; right:0; bottom:0; left:0;*/
+
+padding: 10px 10px;
+  width: 10px;
+  height:5px;
+
+  background: #4f4b77;
+  border: 1px solid #4f4b77;
+  color: #FFF;
+  overflow: hidden;
+
+  transition: all 0.5s;
+}
+
+.buttono:hover, .buttono:active
+{
+  text-decoration: none;
+  color: #4f4b77;
+  border-color: #4f4b77;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.buttono span
+{
+  display: inline-block;
+
+  padding-right: 0;
+
+  transition: padding-right 0.5s;
+}
+
+.buttono span:after
+{
+  content: ' ';
+  position: absolute;
+  /*top: 0;
+  right: -18px;*/
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -10px;
+
+  background: rgba(0, 0, 0, 0);
+  border: 3px solid #FFF;
+  border-top: none;
+  border-right: none;
+
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  transform: rotate(-45deg);
+}
+
+.buttono:hover span, .buttono:active span
+{
+  /*padding-right: 30px;*/
+}
+
+.buttono:hover span:after, .buttono:active span:after
+{
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  opacity: 0;
+  border-color: #191970;
+  /*right: 0;
+  top: 50%;*/
+}
+
+
+div.table-title {
+   display: block;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+}
+
+.table-title h3 {
+   color: #fafafa;
+   font-size: 24px;
+   font-weight: 400;
+   font-style:normal;
+   font-family: "Roboto", helvetica, arial, sans-serif;
+   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+   text-transform:uppercase;
+}
+
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  max-width: 1000px;
+  padding:5px;
+  width: 90%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:16px;
+  font-weight: 100;
+  padding:18px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  /*border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e;*/
+}
+
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+td {
+  background:#FFFFFF;
+  padding:16px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:13px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.title {
+  background:#4f4b77;
+  top: 20px;
+  padding:14px;
+  text-align:center;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:30px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-radius:3px;
+  border-bottom:0px solid #9ea7af;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}

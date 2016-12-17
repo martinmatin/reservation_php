@@ -4,6 +4,7 @@
 <div class="container">
    <form id="signup"  >
       <div class="header">
+        
          <h3>DETAILS DES RESERVATIONS</h3>
          <?php  print($modelTicket->toString()); ?>
       </div>

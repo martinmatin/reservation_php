@@ -2,6 +2,12 @@
 <meta charset="UTF-8">
 <!-- déclaration encodage pour les caractères spéciaux -->
 <link rel="stylesheet" type="text/css" href="../style/design.css">
+<body>
+<a href="../controller/reservationList.php" class="buttono">
+  <span>Liste réservation</span>
+</a>
+</body>
+
 <div class="container">
    <form id="signup"  >
       <div class="header">

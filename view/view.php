@@ -1,6 +1,7 @@
 <?php
 class View {
-    function render($file, $variables = array()) {
+    function render($file, $variables = array(),$people=array()) {
+        extract($people);
         extract($variables);
 
         ob_start();

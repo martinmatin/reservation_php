@@ -33,7 +33,7 @@ $result = $mysqli->query($query) or die('Query failed');
 $sql = "INSERT INTO `database`.`reservation` (`id`,`destination`,`assurance`,`total`)
         VALUES(($result->num_rows +1),'$dest','$assurance','$price');";
 if ($mysqli->query($sql) === TRUE) {
-  echo "Record updated successfully";
+
   $id_insert = $mysqli->insert_id;
 }
 else {
@@ -48,7 +48,6 @@ foreach($localTicket->getPeople() as $person){
   $sql = "INSERT INTO `database`.`people` (`id`,`nom`,`age`)
   VALUES(($result->num_rows +1),'$name','$age');";
   if ($mysqli->query($sql) === TRUE) {
-    echo "Record updated successfully";
     $id_insert = $mysqli->insert_id;
   }
   else {

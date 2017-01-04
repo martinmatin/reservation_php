@@ -6,6 +6,26 @@ body {
   font-weight: 400;
   text-rendering: optimizeLegibility;
 }
+
+input{
+  font-size: 30px;
+  border-width: 0px;
+
+  background-color: rgba(0, 0, 0, 0);
+}
+a {
+color: #999999;
+}
+a:link {
+color: #999999;
+}
+a:visited {
+color: #999999;
+}
+a:hover {
+color: #FF3300;
+}
+
 html {
   /*padding-top: 20px;*/
 
@@ -24,6 +44,8 @@ margin-top: 8%;
 
 a    { text-decoration: none;
 }
+
+
 a.buttono
 {
   /*position: fixed;
@@ -32,13 +54,14 @@ a.buttono
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  color: #191970;
+  color: #FFF;/*#191970;*/
 
   font-size: 15px;
   font-family: "Nunito", sans-serif;
   font-weight: 30;
 
   margin: 5em auto;
+
 
   /*position: absolute;*/
   /*top:0; right:0; bottom:0; left:0;*/
@@ -49,6 +72,7 @@ padding: 10px 10px;
 
   background: #4f4b77;
   border: 1px solid #4f4b77;
+  border-radius: 2px;
   color: #FFF;
   overflow: hidden;
 
@@ -66,7 +90,6 @@ padding: 10px 10px;
 .buttono span
 {
   display: inline-block;
-
   padding-right: 0;
 
   transition: padding-right 0.5s;
@@ -132,26 +155,28 @@ div.table-title {
   background: white;
   border-radius:3px;
   border-collapse: collapse;
-  height: 320px;
+  /*height: 230px;*/
   margin: auto;
   max-width: 1000px;
   padding:5px;
   width: 90%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
+  opacity: 0.85;
 }
 
 th {
-  color:#D5DDE5;;
+  color:#D5DDE5;
   background:#1b1e24;
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
-  font-size:16px;
+  font-size:18px;
   font-weight: 100;
   padding:18px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
+
 }
 
 th:first-child {
@@ -205,11 +230,11 @@ tr:last-child td:last-child {
 
 td {
   background:#FFFFFF;
-  padding:16px;
+  padding:15px;
   text-align:left;
   vertical-align:middle;
-  font-weight:300;
-  font-size:13px;
+  font-weight:10;
+  font-size:15px;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #C1C3D1;
 }
@@ -219,7 +244,8 @@ td:last-child {
 }
 
 th.title {
-  background:#4f4b77;
+  background:#1b1e24;
+  /*opacity: 0.5;*/
   top: 20px;
   padding:14px;
   text-align:center;
@@ -231,12 +257,23 @@ th.title {
   border-bottom:0px solid #9ea7af;
 }
 
-th.text-left {
-  text-align: left;
+td.edit {
+font-size: 25px;
+padding: 10px;
+text-align: center;
+}
+td.delete {
+color: #c43131;
+font-size: 23px;
+padding: 5px;
+text-align: center;
 }
 
+
+
+
 th.text-center {
-  text-align: center;
+  padding:4px;
 }
 
 th.text-right {
@@ -249,6 +286,8 @@ td.text-left {
 
 td.text-center {
   text-align: center;
+  font-size: 23px;
+  padding: 5px;
 }
 
 td.text-right {

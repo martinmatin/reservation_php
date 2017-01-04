@@ -94,7 +94,7 @@ class Ticket
     public function toString() {
 
 
-        $data = "Résumé, commande du client : <ul>";
+        $data = "<ul>";
 
         $data .= "<li>Destination: ".$this->destination."</li>";
 
@@ -108,7 +108,7 @@ class Ticket
             $data .=  $person->toString();
             $price += $person->getPrice();
         }
-        $data .= $price;
+
         $data .=  "</ul>";
 
         return $data;

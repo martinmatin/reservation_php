@@ -21,7 +21,14 @@
    <form method="post" action="verif.php">
    </form>
    <form method="post" action="../controller/addResevationController.php">
+     <?php
+     $personObj = $modelTicket->getPeopleIndex(0);
+$nameVal = $personObj->getName();
+print('lol');
+print( $nameVal);
+?>
    <input type="hidden" name="reservation"/>
+
    <input type="text" name="destination" placeholder="Destination" value="<?php  print($modelTicket->getDestination()); ?>" ><br>
    <input type="text" name="nombre_place" placeholder="Nombre de places" value="<?php print($modelTicket->getNbPlace()); ?>" >
    <div class="checkboxy">

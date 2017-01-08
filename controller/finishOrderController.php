@@ -21,7 +21,6 @@ if ($mysqli->connect_errno) {
 }
 
 
-  echo "isUpdateMode" .$localTicket->isUpdateMode()."<br /><hr/>"; // we check if it is in update mode
 if($localTicket->isUpdateMode()){ // If it is, we make an UPDATE, if not, an INSERT
 
   $sqlReservation = "UPDATE `database`.`reservation` set destination='".$localTicket->getDestination()."', assurance='".$localTicket->getCancelInssurance()."', total=".$localTicket->totalPrice()." WHERE id=".$localTicket->getId().";";
@@ -48,7 +47,6 @@ if($localTicket->isUpdateMode()){ // If it is, we make an UPDATE, if not, an INS
 } else {
 
   $sqlReservation = "INSERT INTO `database`.`reservation` (`destination`,`assurance`,`total`) VALUES('".$localTicket->getDestination()."','".$localTicket->getCancelInssurance()."',".$localTicket->totalPrice().");";
-  echo "sqlReservation: " . $sqlReservation."<br /><hr/>";;
   if (! $mysqli->query($sqlReservation) ) {
     echo "Error inserting record reservation:" . $mysqli->error;
     return;
@@ -60,7 +58,7 @@ if($localTicket->isUpdateMode()){ // If it is, we make an UPDATE, if not, an INS
   foreach($localTicket->getPeople() as $person){
 
     $sqlPeople = "INSERT INTO `database`.`people` (`nom`,`age`, `id_reservation`) VALUES('".$person->getName()."',". $person->getAge() .", '$id_insert_reservation');";
-    echo "sqlPeople: " . $sqlPeople."<br /><hr/>";;
+
 
 
     if (! $mysqli->query($sqlPeople) ) {

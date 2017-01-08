@@ -8,8 +8,8 @@ class Ticket
     private $cancelInssurance;
     private $people;
     private $error;
+    private $id;
 
-    // private $name;
     public function __construct() {
         $this->destination = "";
         $this->nbPlace = "";
@@ -18,6 +18,9 @@ class Ticket
         $this->age = "";
         $this->error = "";
         $this->people = array();
+        $this->id = "";
+
+
 
     }
 
@@ -68,30 +71,26 @@ class Ticket
         $this->cancelInssurance =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
     }
 
+    public function setId($id){
+        $this->id =  filter_var($id, FILTER_SANITIZE_STRING);
+    }
+
+    public function getId(){
+       return  $this->id;
+    }
+
+
+    public function isUpdateMode(){  //Help us to know if we UPDATE or INSERT to the database
+        return !empty($this->id);
+    }
+
     public function getCancelInssurance(){
         return $this->cancelInssurance;
     }
 
-    // public function setName($cancelInssurance){
-    //   // array_push($name,filter_var($cancelInssurance, FILTER_SANITIZE_STRING));
-    //     $this->name =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
-    // }
-
-    // public function getName(){
-    //     return $this->name;
-    // }
-
-    // public function setAge($cancelInssurance){
-    //     $this->age =  filter_var($cancelInssurance, FILTER_SANITIZE_STRING);
-    // }
-
-    // public function getAge(){
-    //     return $this->age;
-    // }
 
 
-
-    public function toString() {
+    public function toString() { //To display the information of a ticket
 
 
         $data = "<ul>";

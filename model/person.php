@@ -5,15 +5,30 @@ class Person
 
     private $name;
     private $age;
+    private $id;
+    private $id_reservation;
+
+
 
     public function __construct($name, $age) {
         $this->name = $name;
         $this->age = $age;
+        $this->id = "";
+        $this->id_reservation = "";
+
     }
 
 
     public function getName(){
         return $this->name;
+    }
+
+    public function setId($id){
+        return $this->id = $id;
+    }
+
+    public function setIdReservation($id_reservation){
+        return $this->id_reservation = $id_reservation;
     }
 
 
@@ -30,7 +45,7 @@ class Person
       }
     }
 
-    public function toString() {
+    public function toString() {  //To display the information of a people
 
 
         $data = "Information client: <ul>";

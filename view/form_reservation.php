@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<!-- déclaration encodage pour les caractères spéciaux -->
+<!-- special carachter encode declaration-->
 <link rel="stylesheet" type="text/css" href="../style/design.css">
 <body>
 <a href="../controller/reservationList.php" class="buttono">
@@ -22,10 +22,10 @@
    </form>
    <form method="post" action="../controller/addResevationController.php">
      <?php
-     $personObj = $modelTicket->getPeopleIndex(0);
-$nameVal = $personObj->getName();
-print('lol');
-print( $nameVal);
+
+     $personObj = $modelTicket->getPeopleIndex(0);   //  In edit mode, to have the number of people
+
+
 ?>
    <input type="hidden" name="reservation"/>
 

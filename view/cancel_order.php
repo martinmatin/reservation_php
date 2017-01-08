@@ -4,7 +4,7 @@
 <div class="container">
    <form id="signup"  >
       <div class="header">
-         <h3>La commande est annulé :-( </h3>
+         <h3>La commande est annulée :-( </h3>
       </div>
       <div class="sep"></div>
       <div class="inputs" >

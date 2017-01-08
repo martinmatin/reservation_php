@@ -1,24 +1,23 @@
 <?php
 session_start();
+//print_r($_SESSION);
 require  '../model/tickets.php';
 require  '../model/person.php';
 require  '../view/view.php';
 
 $localTicket = new Ticket();
 
-// connexion et séletion de la base
+// connection to database
 $mysqli = new mysqli("localhost", "root", "", "database");
 if ($mysqli->connect_errno) {
     echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
-// echo $mysqli->host_info . "\n"
 
-//Exécuter des requêtes SQL
-$query = "SELECT * FROM reservation";
+
+// Concatanate the table of reservation and people to display it on the list
+$query = "SELECT GROUP_CONCAT(people.nom SEPARATOR ', ') as name, GROUP_CONCAT(people.age SEPARATOR ', ') as age, reservation.id as id_reservation, reservation.destination, reservation.assurance, reservation.total FROM people JOIN reservation ON people.id_reservation = reservation.id GROUP BY reservation.id";
 $result = $mysqli->query($query) or die('Query failed');
 
-$query = "SELECT * FROM people";
-$people = $mysqli->query($query) or die('Query failed');
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -45,43 +44,44 @@ if ($action =='delete'){
 }
 
 if ($action =='edit'){
-  session_destroy();
   $localTicket = new Ticket(); //else empty input
 
-  // $query = "SELECT * FROM reservation";
-  // $result = $mysqli->query($query) or die('Query failed');
+  $localTicket->setId($_SESSION["id"]);
+
 
   $res = $mysqli->query("SELECT id,destination FROM reservation WHERE id = " . $_SESSION["id"] . "");
   $row = $res->fetch_assoc();
   $localTicket->setDestination($row['destination']);
+  $localTicket->setId($row['id']);
 
-  $res = $mysqli->query("SELECT id,nom,age FROM people WHERE id = " . $_SESSION["id"] . "");
+  $res = $mysqli->query("SELECT id,nom,age,id_reservation FROM people WHERE id = " . $_SESSION["id"] . "");
   $nombre_place=0;
   while ($row = $res->fetch_assoc()) {
-    // echo($row['id']);
-    // echo($row['nom']);
-    // echo($row['age']);
-    //
+
     $person = new Person($row['nom'] ,$row['age']);
+    $person->setId($row['id']);
+    $person->setIdReservation($row['id_reservation']);
+
     $localTicket->addPeople($person);
 
     $nombre_place+=1;
 
   }
+
+
   $localTicket->setNbPlace($nombre_place);
+  $_SESSION["reservationModel"] = serialize($localTicket);
+
+
+
   $view = new View();
   echo $view->render('form_reservation.php', array('modelTicket' => $localTicket));
 }
-// print($action);
-// print($_SESSION["id"]);
-// Numeric array
-// Associative array
-// $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-// printf ("%s (%s)\n",$row["id"],$row["destination"]);
+
 
 else{
 $view = new View();
-
-echo $view->render('reservation_table.php', array('modelReservation' => $result),array('people' => $people));
+//TODO result should be an array of ticket but no time
+echo $view->render('reservation_table.php', array('modelReservation' => $result));
 }
 ?>

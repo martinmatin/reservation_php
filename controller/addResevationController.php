@@ -1,16 +1,22 @@
 <?php
-session_start();
+session_start(); //to enable/init the $session
 require  '../model/tickets.php';
 require  '../model/person.php';
+require  '../view/view.php';
 
 
-if(!isset($_SESSION["reservationModel"])){
-	$_SESSION["reservationModel"] = serialize(new Ticket());
+
+if(isset($_SESSION["reservationModel"])){
+    $localTicket = unserialize($_SESSION["reservationModel"]);
+
+} else {
+    $localTicket = new Ticket(); //else empty input
 }
+
 
 if (isset($_POST['reservation'])) {
 
-    $localTicket = new Ticket();
+
 
 
   $destination = $_POST['destination'];
@@ -34,17 +40,19 @@ if (isset($_POST['reservation'])) {
 
     $_SESSION["reservationModel"] = serialize($localTicket); //object to string
 
-  if($localTicket->hasError()){
-    header('Location: loadBookingController.php');
-  }else{
-     header('Location: loadDetailController.php');
-  }
+   if($localTicket->hasError()){
+
+		$view = new View();
+		echo $view->render('form_reservation.php', array('modelTicket' => $localTicket));
+
+   }else{
 
 
+			$view = new View();
+			echo $view->render('form_detail.php', array('modelTicket' => $localTicket));
+   }
 
 
- // print($localTicket->toString());
-    // echo "<script>window.location = 'view/form_detail.php'</script>";
 }
 
 
